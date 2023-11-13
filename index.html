@@ -23,15 +23,10 @@
 
         .detalhes {
             margin-top: 20px;
-            display: none;
         }
     </style>
 </head>
 <body>
-
-<h1>Agenda de Contatos</h1>
-
-<ul id="listaContatos"></ul>
 
 <!-- Detalhes do Contato -->
 <div id="detalhes" class="detalhes">
@@ -43,6 +38,10 @@
     <p><strong>Setor:</strong> <span id="setor"></span></p>
     <p><strong>Telefone:</strong> <span id="telefone"></span></p>
 </div>
+
+<h1>Agenda de Contatos</h1>
+
+<ul id="listaContatos"></ul>
 
 <script>
     // Função para ler o arquivo CSV
@@ -83,15 +82,6 @@
         document.getElementById("classificacao").textContent = dados[index][4];
         document.getElementById("setor").textContent = dados[index][5];
         document.getElementById("telefone").textContent = dados[index][10]; // Coluna do Telefone
-
-        // Oculta todos os detalhes antes de exibir o correto
-        var detalhesContatos = document.getElementsByClassName("detalhes");
-        for (var i = 0; i < detalhesContatos.length; i++) {
-            detalhesContatos[i].style.display = "none";
-        }
-
-        // Exibe os detalhes do contato selecionado
-        document.getElementById("detalhes").style.display = "block";
     }
 </script>
 
