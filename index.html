@@ -1,61 +1,54 @@
-
-```html
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Agenda</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Números</title>
 </head>
 <body>
-  <table id="agenda-table">
+
+<h1>Agenda de Números</h1>
+
+<table border="1">
     <tr>
-      <th>Nome</th>
-      <th>Posto/Graduação</th>
-      <th>ID Func</th>
-      <th>Classificação</th>
-      <th>Telefone</th>
+        <th>Nome</th>
+        <th>Posto/Graduação</th>
+        <th>Setor</th>
+        <th>Telefone</th>
     </tr>
-  </table>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-  <script>
-    Papa.parse("https://s188.convertio.me/p/7D37j9Q1TLqcS7KitvPYnA/d2be6d108a483ccc0ee780b882bd5a7e/Rela%C3%A7%C3%A3o-Efetivo-atualizado-em-15-02-23.csv", {
-      download: true,
-      header: true,
-      complete: function(results) {
-        var data = results.data;
-        var table = document.getElementById('agenda-table');
+    <script>
+        // Função para ler o arquivo CSV
+        function readCSV() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    processData(this.responseText);
+                }
+            };
+            xhttp.open("GET", "Agenda27.csv", true);
+            xhttp.send();
+        }
 
-        data.forEach(function(row) {
-          var nome = row.nome;
-          var postoGraduacao = row.postoGraduacao;
-          var idFunc = row.idFunc;
-          var classificacao = row.classificacao;
-          var telefone = row.telefone;
+        // Função para processar os dados do CSV e preencher a tabela
+        function processData(csvData) {
+            var lines = csvData.split("\n");
+            for (var i = 1; i < lines.length; i++) { // Começa de 1 para pular o cabeçalho
+                var data = lines[i].split(",");
+                document.write("<tr>");
+                document.write("<td>" + data[2] + "</td>");
+                document.write("<td>" + data[1] + "</td>");
+                document.write("<td>" + data[5] + "</td>");
+                document.write("<td>" + data[11] + "</td>");
+                document.write("</tr>");
+            }
+        }
 
-          var newRow = table.insertRow();
-          newRow.innerHTML = "<td>" + nome + "</td><td>" + postoGraduacao + "</td><td>" + idFunc + "</td><td>" + classificacao + "</td><td>" + telefone + "</td>";
-        });
-      }
-    });
-  </script>
+        // Chama a função para ler o arquivo CSV ao carregar a página
+        readCSV();
+    </script>
+
+</table>
+
 </body>
 </html>
-```
-
-Lembre-se de substituir a string `"caminho_para_o_arquivo.csv"` pelo caminho real do seu arquivo CSV. Depois de salvar o código em um arquivo HTML, você pode executá-lo em um navegador e a tabela da agenda será gerada com base nos dados do arquivo CSV.
