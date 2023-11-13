@@ -3,74 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda de Números</title>
+    <title>Agenda de Contatos</title>
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
+        li {
+            margin: 5px;
+            padding: 10px;
             background-color: #f2f2f2;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #ddd;
+        }
+
+        #detalhes {
+            display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<h1>Agenda de Números</h1>
+<h1>Agenda de Contatos</h1>
 
-<table id="tabela">
-    <tr>
-        <th>Posto/Graduação</th>
-        <th>Nome</th>
-        <th>Id. Func.</th>
-        <th>Classificação Conforme RHE</th>
-        <th>Setor</th>
-        <th>Telefone</th>
-    </tr>
+<ul id="listaContatos"></ul>
 
-    <script>
-        // Função para ler o arquivo CSV
-        function lerCSV(arquivo) {
-            var request = new XMLHttpRequest();
-            request.open("GET", arquivo, false);
-            request.send(null);
-            var arquivoCSV = request.responseText;
-            return arquivoCSV;
-        }
+<div id="detalhes">
+    <h2>Detalhes do Contato</h2>
+    <p><strong>Posto/Graduação:</strong> <span id="postograd"></span></p>
+    <p><strong>Nome:</strong> <span id="nome"></span></p>
+    <p><strong>Id. Func.:</strong> <span id="idfunc"></span></p>
+    <p><strong>Classificação Conforme RHE:</strong> <span id="classificacao"></span></p>
+    <p><strong>Setor:</strong> <span id="setor"></span></p>
+    <p><strong>Telefone:</strong> <span id="telefone"></span></p>
+</div>
 
-        // Ler o conteúdo do arquivo CSV
-        var dadosCSV = lerCSV("Agenda27.csv");
+<script>
+    // Função para ler o arquivo CSV
+    function lerCSV(arquivo) {
+        var request = new XMLHttpRequest();
+        request.open("GET", arquivo, false);
+        request.send(null);
+        var arquivoCSV = request.responseText;
+        return arquivoCSV;
+    }
 
-        // Dividir o conteúdo em linhas e células
-        var linhas = dadosCSV.split('\n');
-        var dados = [];
-        for (var i = 0; i < linhas.length; i++) {
-            dados.push(linhas[i].split(','));
-        }
+    // Ler o conteúdo do arquivo CSV
+    var dadosCSV = lerCSV("Agenda27.csv");
 
-        // Preencher a tabela com os dados
-        var tabela = document.getElementById("tabela");
-        dados.forEach(function (linha) {
-            var row = tabela.insertRow(-1);
-            linha.forEach(function (celula) {
-                var cell = row.insertCell(-1);
-                cell.textContent = celula;
-            });
-        });
-    </script>
+    // Dividir o conteúdo em linhas e células
+    var linhas = dadosCSV.split('\n');
+    var dados = [];
+    for (var i = 0; i < linhas.length; i++) {
+        dados.push(linhas[i].split(','));
+    }
 
-</table>
+    // Preencher a lista de contatos
+    var listaContatos = document.getElementById("listaContatos");
+    dados.forEach(function (linha, index) {
+        var li = document.createElement("li");
+        li.textContent = linha[1]; // Assume que o nome está na segunda coluna
+        li.onclick = function () {
+            exibirDetalhes(index);
+        };
+        listaContatos.appendChild(li);
+    });
+
+    // Função para exibir detalhes do contato selecionado
+    function exibirDetalhes(index) {
+        document.getElementById("postograd").textContent = dados[index][0];
+        document.getElementById("nome").textContent = dados[index][1];
+        document.getElementById("idfunc").textContent = dados[index][2];
+        document.getElementById("classificacao").textContent = dados[index][3];
+        document.getElementById("setor").textContent = dados[index][4];
+        document.getElementById("telefone").textContent = dados[index][5];
+
+        document.getElementById("detalhes").style.display = "block";
+    }
+</script>
 
 </body>
 </html>
