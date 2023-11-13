@@ -1,115 +1,61 @@
+
+```html
 <!DOCTYPE html>
-<html class="h-full overflow-x-hidden max-w-full" lang="pt-BR">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-    :root {
-        --color-primary: #ffffff;
-        --color-secondary: #000000;
-        --color-tertiary: #76bb40;
-
+  <title>Agenda</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
     }
-</style>
-<link rel="preload" as="style" href="https://gopage.bio/build/assets/page-13c6c967.css" /><link rel="stylesheet" href="https://gopage.bio/build/assets/page-13c6c967.css" />
 
-<style>
-    /* Adicione a classe CSS 'hidden' para ocultar as tabelas por padrão */
-    .widget-wrapper {
-        display: none;
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
     }
-</style>
 
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
-<body class="min-h-full flex flex-col bg-secondary text-primary font-primary">
-<div class="container flex-1 min-h-full overflow-x-hidden flex flex-col">
-<section class="widget-wrapper">
-    <table border="0" align="center" width="200" height="200">
-  <tr align="center">
-      <td >
-<img src="https://i.ibb.co/LSsDx6S/1497752.png" alt="" style="width:200px;height:200px; "class="" />
-</tr></td>
-</table>
-</section>
-<section class="widget-wrapper">
-<h1 class="text-2xl leading-tight font-bold mb-2">José Luis Krauze do Nascimento</h1>
-<p class="leading-normal text-[13px]">Maj QOEM | 2331837 | Cmt do 27° BPM | SS do Caí</p>
-<table border="0" align="center">
+<body>
+  <table id="agenda-table">
     <tr>
-        <td>
-<a href="tel:51999538905" target="_blank" rel="noopener noreferrer" class="cursor-pointer  min-h-[38px] transition-all duration-200 hover:brightness-110 flex items-center justify-center font-semibold mt-3 text-[15px] text-tertiary bg-primary rounded-full shadown py-2 px-7 w-full">
-<i class="text-inherit text-2xl mr-3 fa-brands fa-telegram"></i>
-<span>Ligar</span>
-</td>
-        <td>
-  <a href="https://api.whatsapp.com/send?phone=5551999538905" target="_blank" rel="noopener noreferrer" class="cursor-pointer  min-h-[38px] transition-all duration-200 hover:brightness-110 flex items-center justify-center font-semibold mt-3 text-[11px] bg-tertiary rounded-full shadown py-2 px-7 w-full">
-<i class="text-inherit text-2xl mr-3 fa-brands fa-whatsapp"></i>
-<span>Whatsapp</span>
-</a>
-</td>
+      <th>Nome</th>
+      <th>Posto/Graduação</th>
+      <th>ID Func</th>
+      <th>Classificação</th>
+      <th>Telefone</th>
     </tr>
-</table>
-</a>
-</section>
-<section class="widget-wrapper">
-<h1 class="text-2xl leading-tight font-bold mb-2">Kevin Bertemoni Kayser</h1>
-<p class="leading-normal text-[13px]">Cap QOEM | 4672712 | CRPO/VC/27°BPM/Ch do P3 e P2-Subcmt | SS do Caí</p>
-<table border="0" align="center">
-    <tr>
-        <td>
-<a href="tel:51994022619" target="_blank" rel="noopener noreferrer" class="cursor-pointer  min-h-[38px] transition-all duration-200 hover:brightness-110 flex items-center justify-center font-semibold mt-3 text-[15px] text-tertiary bg-primary rounded-full shadown py-2 px-7 w-full">
-<i class="text-inherit text-2xl mr-3 fa-brands fa-telegram"></i>
-<span>Ligar</span>
-</td>
-        <td>
-  <a href="https://api.whatsapp.com/send?phone=555194022619" target="_blank" rel="noopener noreferrer" class="cursor-pointer  min-h-[38px] transition-all duration-200 hover:brightness-110 flex items-center justify-center font-semibold mt-3 text-[11px] bg-tertiary rounded-full shadown py-2 px-7 w-full">
-<i class="text-inherit text-2xl mr-3 fa-brands fa-whatsapp"></i>
-<span>Whatsapp</span>
-</a>
-</td>
-    </tr>
-</table>
-</a>
-</section>
-<section class="widget-wrapper">
-<h1 class="text-2xl leading-tight font-bold mb-2">Gustavo Cenci</h1>
-<p class="leading-normal text-[13px]">1°Ten QTPM | 2521300 | CRPOVC/27 BPM/1 Cia/3 Pel | Bom Principio</p>
-<table border="0" align="center">
-    <tr>
-        <td>
-<a href="tel:51999991245" target="_blank" rel="noopener noreferrer" class="cursor-pointer  min-h-[38px] transition-all duration-200 hover:brightness-110 flex items-center justify-center font-semibold mt-3 text-[15px] text-tertiary bg-primary rounded-full shadown py-2 px-7 w-full">
-<i class="text-inherit text-2xl mr-3 fa-brands fa-telegram"></i>
-<span>Ligar</span>
-</td>
-        <td>
-  <a href="https://api.whatsapp.com/send?phone=5551999991245" target="_blank" rel="noopener noreferrer" class="cursor-pointer  min-h-[38px] transition-all duration-200 hover:brightness-110 flex items-center justify-center font-semibold mt-3 text-[11px] bg-tertiary rounded-full shadown py-2 px-7 w-full">
-<i class="text-inherit text-2xl mr-3 fa-brands fa-whatsapp"></i>
-<span>Whatsapp</span>
-</a>
-</td>
-    </tr>
-</table>
-</a>
-</section>
-</div>
+  </table>
 
-<!-- Botão "Agenda" -->
-<button id="showAgendaBtn">Agenda</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <script>
+    Papa.parse("https://s188.convertio.me/p/7D37j9Q1TLqcS7KitvPYnA/d2be6d108a483ccc0ee780b882bd5a7e/Rela%C3%A7%C3%A3o-Efetivo-atualizado-em-15-02-23.csv", {
+      download: true,
+      header: true,
+      complete: function(results) {
+        var data = results.data;
+        var table = document.getElementById('agenda-table');
 
-<script>
-    // Função para mostrar ou ocultar as tabelas
-    function toggleAgenda() {
-        var tables = document.querySelectorAll('.widget-wrapper');
-        tables.forEach(function(table) {
-            table.classList.toggle('hidden');
+        data.forEach(function(row) {
+          var nome = row.nome;
+          var postoGraduacao = row.postoGraduacao;
+          var idFunc = row.idFunc;
+          var classificacao = row.classificacao;
+          var telefone = row.telefone;
+
+          var newRow = table.insertRow();
+          newRow.innerHTML = "<td>" + nome + "</td><td>" + postoGraduacao + "</td><td>" + idFunc + "</td><td>" + classificacao + "</td><td>" + telefone + "</td>";
         });
-    }
-
-    // Adicione um ouvinte de evento de clique ao botão
-    var showAgendaBtn = document.getElementById('showAgendaBtn');
-    showAgendaBtn.addEventListener('click', toggleAgenda);
-</script>
-
+      }
+    });
+  </script>
 </body>
 </html>
+```
+
+Lembre-se de substituir a string `"caminho_para_o_arquivo.csv"` pelo caminho real do seu arquivo CSV. Depois de salvar o código em um arquivo HTML, você pode executá-lo em um navegador e a tabela da agenda será gerada com base nos dados do arquivo CSV.
