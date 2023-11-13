@@ -60,7 +60,7 @@
     // Dividir o conteúdo em linhas e células
     var linhas = dadosCSV.split('\n');
     var dados = [];
-    for (var i = 0; i < linhas.length; i++) {
+    for (var i = 1; i < linhas.length; i++) {
         dados.push(linhas[i].split(','));
     }
 
@@ -68,7 +68,7 @@
     var listaContatos = document.getElementById("listaContatos");
     dados.forEach(function (linha, index) {
         var li = document.createElement("li");
-        li.textContent = linha[1]; // Assume que o nome está na segunda coluna
+        li.textContent = linha[2]; // Coluna do Nome
         li.onclick = function () {
             exibirDetalhes(index);
         };
@@ -77,12 +77,12 @@
 
     // Função para exibir detalhes do contato selecionado
     function exibirDetalhes(index) {
-        document.getElementById("postograd").textContent = dados[index][0];
-        document.getElementById("nome").textContent = dados[index][1];
-        document.getElementById("idfunc").textContent = dados[index][2];
-        document.getElementById("classificacao").textContent = dados[index][3];
-        document.getElementById("setor").textContent = dados[index][4];
-        document.getElementById("telefone").textContent = dados[index][5];
+        document.getElementById("postograd").textContent = dados[index][1];
+        document.getElementById("nome").textContent = dados[index][2];
+        document.getElementById("idfunc").textContent = dados[index][3];
+        document.getElementById("classificacao").textContent = dados[index][4];
+        document.getElementById("setor").textContent = dados[index][5];
+        document.getElementById("telefone").textContent = dados[index][10]; // Coluna do Telefone
 
         // Oculta todos os detalhes antes de exibir o correto
         var detalhesContatos = document.getElementsByClassName("detalhes");
